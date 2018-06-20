@@ -25,7 +25,7 @@ export default {
         attrs: {
           data: this.tableObject.list,
           style: 'width: 100%',
-          height: '478',
+          // height: '478',
           border: true,
           fit: true,
           'highlight-current-row': true,
