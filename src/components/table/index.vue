@@ -1,7 +1,5 @@
 <script>
-import elTableColumn from '@/components/Table/tableColumn'
 export default {
-  components: { elTableColumn },
   props: {
     tableObject: {
       type: Object,
@@ -14,18 +12,28 @@ export default {
     }
   },
   methods: {
+    createChildElement(createElement, item) {
+      return createElement('el-table-column', {
+        attrs: {
+          prop: item.props.data.column,
+          label: item.props.data.label,
+          width: item.props.data.width,
+          align: item.props.data.align,
+          formatter: item.props.data.formatter
+        }
+      })
+    },
     handleSelectionChange (val) {
       this.multipleSelection = val
       this.$emit('getCheckedItems', this.multipleSelection)
     }
   },
   render (createElement) {
-    return createElement(
-      'el-table', {
+    return createElement('el-table', {
         attrs: {
           data: this.tableObject.list,
           style: 'width: 100%',
-          // height: '478',
+          height: this.tableObject.style.height,
           border: true,
           fit: true,
           'highlight-current-row': true,
@@ -42,7 +50,7 @@ export default {
             data: item
           }
         }
-        return createElement('el-table-column', data)
+        return this.createChildElement(createElement, data)
       })
     )
   }

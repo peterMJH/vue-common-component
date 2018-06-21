@@ -1,11 +1,11 @@
 <template>
     <div>
-        <!-- <table-render :table-object="tableObject" v-on:getCheckedItems="getCheckedItems"></table-render> -->
+        <table-render :table-object="tableObject" v-on:getCheckedItems="getCheckedItems"></table-render>
         <form-render :form-object="formObject"></form-render>{{formObject}}
     </div>
 </template>
 <script>
-import tableRender from '@/components/table/table'
+import tableRender from '@/components/table'
 import formRender from '@/components/form'
 export default {
     components: { tableRender, formRender },
@@ -16,6 +16,7 @@ export default {
     data () {
         return {
             tableObject: {
+                style: {},
                 columns: [],
                 list: [],
                 checkedList: [],
@@ -187,6 +188,7 @@ export default {
             ]
         },
         setTableCol () {
+            this.tableObject.style.height = '200px'
             this.tableObject.columns = [
                 { column: 'date', label: 'date', width: '150', align: 'center' },
                 { column: 'name', label: 'name', width: '150', align: 'center' },

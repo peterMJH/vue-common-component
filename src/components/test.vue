@@ -1,5 +1,5 @@
 <script>
-import elTableRender from '@/components/table/table'
+import elTableRender from '@/components/table'
 export default {
     components: { elTableRender },
     data() {

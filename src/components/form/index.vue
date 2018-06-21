@@ -1,5 +1,5 @@
 <script>
-import elTableRender from '@/components/table/table'
+import elTableRender from '@/components/table'
 export default {
     components: { elTableRender },
     data() {
@@ -65,7 +65,6 @@ export default {
                     } else {
                         child = []
                     }
-                    console.log(elementType)
                     return createElement('el-form-item', {
                         attrs: {
                             label: item.label
